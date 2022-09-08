@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chubrik.Json", "Chubrik.Json\Chubrik.Json.csproj", "{F507933F-903A-4D30-994D-9CD365A31B96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chubrik.Json.Tests", "Chubrik.Json.Tests\Chubrik.Json.Tests.csproj", "{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F507933F-903A-4D30-994D-9CD365A31B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F507933F-903A-4D30-994D-9CD365A31B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F507933F-903A-4D30-994D-9CD365A31B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F507933F-903A-4D30-994D-9CD365A31B96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D127F48-B211-4A18-BDE0-C02B8C56F611}
+	EndGlobalSection
+EndGlobal
