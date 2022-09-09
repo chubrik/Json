@@ -6,4 +6,18 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Authors>Arkadi Chubrik</Authors>
+    <Copyright>© 2022 Arkadi Chubrik</Copyright>
+    <Description>Provides snake_case serialization.</Description>
+    <PackageTags>json serialization snake-case</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/chubrik/Json</RepositoryUrl>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE" Link="Pack\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
 </Project>
