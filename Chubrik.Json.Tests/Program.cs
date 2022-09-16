@@ -1,5 +1,6 @@
 ﻿namespace Chubrik.Json.Tests;
 
+using System;
 using System.Text.Json;
 using Console = Console.XConsole;
 

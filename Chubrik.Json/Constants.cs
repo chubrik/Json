@@ -4,6 +4,9 @@ using static Chubrik.Json.CharType;
 
 internal static class Constants
 {
+    public const string PropertyNameBadCharactersMessage =
+        "Property name should contain only the following characters: A-Z a-z 0-9 _";
+
     public static readonly CharType[] CharTypeMap = new[]
     {
         None,    None,    None,    None,    None,    None,    None,    None,

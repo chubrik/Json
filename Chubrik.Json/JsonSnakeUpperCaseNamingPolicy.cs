@@ -1,5 +1,6 @@
 ﻿namespace Chubrik.Json;
 
+using System;
 using System.Text;
 using System.Text.Json;
 using static Chubrik.Json.CharType;
@@ -23,7 +24,7 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
             ch = name[i];
 
             if (ch > 'z')
-                throw new JsonException("Property name should contain only the following characters: A-Z a-z 0-9 _");
+                throw new JsonException(Constants.PropertyNameBadCharactersMessage);
 
             type = typeMap[ch];
 

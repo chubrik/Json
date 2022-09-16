@@ -1,23 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <Authors>Arkadi Chubrik</Authors>
     <Copyright>© 2022 Arkadi Chubrik</Copyright>
-    <Description>Provides snake_case serialization.</Description>
-    <PackageTags>json serialization snake-case</PackageTags>
+    <Description>Provides snake_case &amp; kebab-case json serialization.</Description>
+    <PackageTags>json serialization snake_case kebab-case</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/chubrik/Json</RepositoryUrl>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\LICENSE" Link="Pack\LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0' Or '$(TargetFramework)'=='netframework462'">
+    <PackageReference Include="System.Text.Json" Version="6.*" />
   </ItemGroup>
 
 </Project>
