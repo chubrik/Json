@@ -6,7 +6,7 @@ using static Chubrik.Json.CharType;
 
 internal sealed class JsonSnakeLowerCaseNamingPolicy : JsonNamingPolicy
 {
-    public override string ConvertName(string name)
+    public override string ConvertName(string? name)
     {
         if (string.IsNullOrEmpty(name))
             throw new InvalidOperationException();
@@ -23,7 +23,7 @@ internal sealed class JsonSnakeLowerCaseNamingPolicy : JsonNamingPolicy
             ch = name[i];
 
             if (ch > 'z')
-                throw new InvalidOperationException();
+                throw new JsonException("Property name should contain only the following characters: A-Z a-z 0-9 _");
 
             type = typeMap[ch];
 

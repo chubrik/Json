@@ -4,7 +4,7 @@ using System.Text;
 using System.Text.Json;
 using static Chubrik.Json.CharType;
 
-internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
+internal sealed class JsonKebabUpperCaseNamingPolicy : JsonNamingPolicy
 {
     public override string ConvertName(string? name)
     {
@@ -38,17 +38,20 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
                     if (prevType == LetterU)
                     {
                         if (i < lastIndex && typeMap[name[i + 1]] == LetterL)
-                            sb.Append('_');
+                            sb.Append('-');
                     }
                     else if (prevType == LetterL || prevType == Number)
-                        sb.Append('_');
+                        sb.Append('-');
 
                     sb.Append(ch);
                     break;
 
                 case Number:
-                case Underln:
                     sb.Append(ch);
+                    break;
+
+                case Underln:
+                    sb.Append('-');
                     break;
 
                 default:

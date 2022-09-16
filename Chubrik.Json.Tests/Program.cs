@@ -1,6 +1,7 @@
 ﻿namespace Chubrik.Json.Tests;
 
 using System.Text.Json;
+using Console = Console.XConsole;
 
 public class Program
 {
@@ -35,9 +36,6 @@ public class Program
             Hex2_0xA1B23CD4 = 25
         };
 
-        var snakeLowerJson = JsonSerializer.Serialize(testObj, _jsonOptionsLower);
-        var snakeUpperJson = JsonSerializer.Serialize(testObj, _jsonOptionsUpper);
-
         var expectedJson = "{" +
             NL + "  \"prop\": 1," +
             NL + "  \"upper\": 2," +
@@ -66,27 +64,67 @@ public class Program
             NL + "  \"hex2_0x_a1_b23_cd4\": 25" +
             NL + "}";
 
+        // Snake lower case
+
+        var snakeLowerJson = JsonSerializer.Serialize(testObj, _snakeLowerCaseJsonOptions);
+
         if (snakeLowerJson != expectedJson)
             throw new InvalidOperationException();
+
+        var deserializedSnakeLowerObj = JsonSerializer.Deserialize<TestObject>(snakeLowerJson, _snakeLowerCaseJsonOptions);
+
+        if (deserializedSnakeLowerObj == null)
+            throw new InvalidOperationException();
+
+        if (!IsEquals(deserializedSnakeLowerObj, testObj))
+            throw new InvalidOperationException();
+
+        // Snake upper case
+
+        var snakeUpperJson = JsonSerializer.Serialize(testObj, _snakeUpperCaseJsonOptions);
 
         if (snakeUpperJson != expectedJson.ToUpper())
             throw new InvalidOperationException();
 
-        var deserializedLowerObj = JsonSerializer.Deserialize<TestObject>(snakeLowerJson, _jsonOptionsLower);
+        var deserializedSnakeUpperObj = JsonSerializer.Deserialize<TestObject>(snakeUpperJson, _snakeUpperCaseJsonOptions);
 
-        if (deserializedLowerObj == null)
+        if (deserializedSnakeUpperObj == null)
             throw new InvalidOperationException();
 
-        if (!IsEquals(deserializedLowerObj, testObj))
+        if (!IsEquals(deserializedSnakeUpperObj, testObj))
             throw new InvalidOperationException();
 
-        var deserializedUpperObj = JsonSerializer.Deserialize<TestObject>(snakeUpperJson, _jsonOptionsUpper);
+        // Kebab lower case
 
-        if (deserializedUpperObj == null)
+        var kebabLowerJson = JsonSerializer.Serialize(testObj, _kebabLowerCaseJsonOptions);
+
+        if (kebabLowerJson != expectedJson.Replace('_', '-'))
             throw new InvalidOperationException();
 
-        if (!IsEquals(deserializedUpperObj, testObj))
+        var deserializedKebabLowerObj = JsonSerializer.Deserialize<TestObject>(kebabLowerJson, _kebabLowerCaseJsonOptions);
+
+        if (deserializedKebabLowerObj == null)
             throw new InvalidOperationException();
+
+        if (!IsEquals(deserializedKebabLowerObj, testObj))
+            throw new InvalidOperationException();
+
+        // Kebab upper case
+
+        var kebabUpperJson = JsonSerializer.Serialize(testObj, _kebabUpperCaseJsonOptions);
+
+        if (kebabUpperJson != expectedJson.Replace('_', '-').ToUpper())
+            throw new InvalidOperationException();
+
+        var deserializedKebabUpperObj = JsonSerializer.Deserialize<TestObject>(kebabUpperJson, _kebabUpperCaseJsonOptions);
+
+        if (deserializedKebabUpperObj == null)
+            throw new InvalidOperationException();
+
+        if (!IsEquals(deserializedKebabUpperObj, testObj))
+            throw new InvalidOperationException();
+
+        // Done
 
         Console.WriteLine("G`Test passed!");
     }
@@ -123,15 +161,27 @@ public class Program
 
     private static readonly string NL = Environment.NewLine;
 
-    private static readonly JsonSerializerOptions _jsonOptionsLower = new()
+    private static readonly JsonSerializerOptions _snakeLowerCaseJsonOptions = new()
     {
         PropertyNamingPolicy = JsonNamingPolicies.SnakeLowerCase,
         WriteIndented = true
     };
 
-    private static readonly JsonSerializerOptions _jsonOptionsUpper = new()
+    private static readonly JsonSerializerOptions _snakeUpperCaseJsonOptions = new()
     {
         PropertyNamingPolicy = JsonNamingPolicies.SnakeUpperCase,
+        WriteIndented = true
+    };
+
+    private static readonly JsonSerializerOptions _kebabLowerCaseJsonOptions = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicies.KebabLowerCase,
+        WriteIndented = true
+    };
+
+    private static readonly JsonSerializerOptions _kebabUpperCaseJsonOptions = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicies.KebabUpperCase,
         WriteIndented = true
     };
 }

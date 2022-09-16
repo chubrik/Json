@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="XConsole" Version="1.*" />
-    <Using Include="Chubrik.XConsole.XConsole" Alias="Console" />
+    <PackageReference Include="XConsole" Version="1.2.*" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,6 @@
-﻿namespace Chubrik.Json.Tests;
+﻿#pragma warning disable IDE1006 // Naming Styles
+
+namespace Chubrik.Json.Tests;
 
 public sealed class TestObject
 {
