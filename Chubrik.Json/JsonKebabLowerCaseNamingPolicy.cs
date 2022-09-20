@@ -13,7 +13,7 @@ internal sealed class JsonKebabLowerCaseNamingPolicy : JsonNamingPolicy
             throw new InvalidOperationException();
 
         var sb = new StringBuilder();
-        var lastIndex = name.Length - 1;
+        var lastIndex = name!.Length - 1;
         var typeMap = Constants.CharTypeMap;
         var prevType = None;
         char ch;
@@ -44,7 +44,7 @@ internal sealed class JsonKebabLowerCaseNamingPolicy : JsonNamingPolicy
                     else if (prevType == LetterL || prevType == Number)
                         sb.Append('-');
 
-                    sb.Append(char.ToLower(ch));
+                    sb.Append((char)(ch + 32));
                     break;
 
                 case Number:

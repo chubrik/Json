@@ -1,4 +1,8 @@
-﻿namespace Chubrik.Json.Tests;
+﻿#if NET5_0
+#pragma warning disable CA1416 // Validate platform compatibility
+#endif
+
+namespace Chubrik.Json.Tests;
 
 using System;
 using System.Text.Json;

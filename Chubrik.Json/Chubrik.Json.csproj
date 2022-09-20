@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Authors>Arkadi Chubrik</Authors>
     <Copyright>© 2022 Arkadi Chubrik</Copyright>
-    <Description>Provides snake_case &amp; kebab-case json serialization.</Description>
-    <PackageTags>json serialization snake_case kebab-case</PackageTags>
+    <Description>Provides snake_case &amp; kebab-case property name json serialization.</Description>
+    <PackageTags>json serialization property snake_case kebab-case</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <RepositoryUrl>https://github.com/chubrik/Json</RepositoryUrl>
-    <Version>0.1.2</Version>
+    <Version>0.1.3</Version>
   </PropertyGroup>
 
   <ItemGroup>

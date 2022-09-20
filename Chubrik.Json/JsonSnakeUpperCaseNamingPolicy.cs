@@ -13,7 +13,7 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
             throw new InvalidOperationException();
 
         var sb = new StringBuilder();
-        var lastIndex = name.Length - 1;
+        var lastIndex = name!.Length - 1;
         var typeMap = Constants.CharTypeMap;
         var prevType = None;
         char ch;
@@ -31,7 +31,7 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
             switch (type)
             {
                 case LetterL:
-                    sb.Append(char.ToUpper(ch));
+                    sb.Append((char)(ch - 32));
                     break;
 
                 case LetterU:
