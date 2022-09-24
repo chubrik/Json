@@ -2,7 +2,7 @@
 
 namespace Chubrik.Json.Tests;
 
-public sealed class TestObject
+public sealed class Serializable
 {
     public int? Prop { get; set; }
     public int? UPPER { get; set; }

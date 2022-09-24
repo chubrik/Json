@@ -1,6 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <TargetFrameworks>net6.0;net5.0;netstandard2.0;netframework462</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <Authors>Arkadi Chubrik</Authors>
     <Copyright>© 2022 Arkadi Chubrik</Copyright>
     <Description>Provides snake_case &amp; kebab-case property name json serialization.</Description>
