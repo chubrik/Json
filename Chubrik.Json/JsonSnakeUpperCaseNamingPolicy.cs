@@ -15,7 +15,7 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
         var sb = new StringBuilder();
         var lastIndex = name!.Length - 1;
         var typeMap = Constants.CharTypeMap;
-        var prevType = None;
+        var prevType = Underln;
         char ch;
         CharType type;
 
@@ -41,15 +41,18 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
                         if (i < lastIndex && typeMap[name[i + 1]] == LetterL)
                             sb.Append('_');
                     }
-                    else if (prevType == LetterL || prevType == Number)
+                    else if (prevType != Underln)
                         sb.Append('_');
 
                     sb.Append(ch);
                     break;
 
                 case Number:
-                case Underln:
                     sb.Append(ch);
+                    break;
+
+                case Underln:
+                    sb.Append('_');
                     break;
 
                 default:

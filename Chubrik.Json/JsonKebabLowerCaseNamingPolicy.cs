@@ -15,7 +15,7 @@ internal sealed class JsonKebabLowerCaseNamingPolicy : JsonNamingPolicy
         var sb = new StringBuilder();
         var lastIndex = name!.Length - 1;
         var typeMap = Constants.CharTypeMap;
-        var prevType = None;
+        var prevType = Underln;
         char ch;
         CharType type;
 
@@ -41,7 +41,7 @@ internal sealed class JsonKebabLowerCaseNamingPolicy : JsonNamingPolicy
                         if (i < lastIndex && typeMap[name[i + 1]] == LetterL)
                             sb.Append('-');
                     }
-                    else if (prevType == LetterL || prevType == Number)
+                    else if (prevType != Underln)
                         sb.Append('-');
 
                     sb.Append((char)(ch + 32));
