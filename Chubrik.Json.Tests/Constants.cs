@@ -41,7 +41,7 @@ public static class Constants
         Snake__Long = 9,
         SEMIUpper = 10,
         _Underlined_ = 11,
-        __MoreUnderlined__ = 12,
+        __MoreLines__ = 12,
         Version1 = 13,
         Version1_0 = 14,
         Version1__1 = 15,
@@ -51,10 +51,10 @@ public static class Constants
         Version3beta = 19,
         Version4_Gamma = 20,
         Version5_delta = 21,
-        Version6__Epsilon = 22,
-        Version7__zeta = 23,
-        Hex1_0xa1b23cd4 = 24,
-        Hex2_0xA1B23CD4 = 25
+        Version6__Zeta = 22,
+        Version7__eta = 23,
+        Hex1_0xa1b23c = 24,
+        Hex2_0xA1B23C = 25
     };
 
     public static readonly string SnakeLowerJson =
@@ -70,7 +70,7 @@ public static class Constants
   ""snake__long"": 9,
   ""semi_upper"": 10,
   ""_underlined_"": 11,
-  ""__more_underlined__"": 12,
+  ""__more_lines__"": 12,
   ""version1"": 13,
   ""version1_0"": 14,
   ""version1__1"": 15,
@@ -80,10 +80,10 @@ public static class Constants
   ""version3beta"": 19,
   ""version4_gamma"": 20,
   ""version5_delta"": 21,
-  ""version6__epsilon"": 22,
-  ""version7__zeta"": 23,
-  ""hex1_0xa1b23cd4"": 24,
-  ""hex2_0x_a1_b23_cd4"": 25
+  ""version6__zeta"": 22,
+  ""version7__eta"": 23,
+  ""hex1_0xa1b23c"": 24,
+  ""hex2_0x_a1_b23_c"": 25
 }";
 
     public static readonly string SnakeUpperJson = SnakeLowerJson.ToUpper();

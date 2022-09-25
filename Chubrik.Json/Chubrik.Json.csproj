@@ -7,15 +7,17 @@
   <PropertyGroup>
     <Authors>Arkadi Chubrik</Authors>
     <Copyright>© 2022 Arkadi Chubrik</Copyright>
-    <Description>Provides snake_case &amp; kebab-case property name json serialization.</Description>
+    <Description>Tiny library based on System.Text.Json and provides snake_case &amp; kebab-case property name serialization policies. Designed for maximum performance.</Description>
     <PackageTags>json serialization property snake_case kebab-case</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/chubrik/Json</RepositoryUrl>
-    <Version>0.1.3</Version>
+    <Version>0.1.4</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\LICENSE" Link="Pack\LICENSE" Pack="true" PackagePath="" />
+    <None Include="..\README.md" Link="Pack\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='netstandard2.0' Or '$(TargetFramework)'=='netframework462'">

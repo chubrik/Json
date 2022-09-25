@@ -80,7 +80,7 @@ public sealed class Tests
         Assert.AreEqual(TestObject.Snake__Long, deserialized.Snake__Long);
         Assert.AreEqual(TestObject.SEMIUpper, deserialized.SEMIUpper);
         Assert.AreEqual(TestObject._Underlined_, deserialized._Underlined_);
-        Assert.AreEqual(TestObject.__MoreUnderlined__, deserialized.__MoreUnderlined__);
+        Assert.AreEqual(TestObject.__MoreLines__, deserialized.__MoreLines__);
         Assert.AreEqual(TestObject.Version1, deserialized.Version1);
         Assert.AreEqual(TestObject.Version1_0, deserialized.Version1_0);
         Assert.AreEqual(TestObject.Version1__1, deserialized.Version1__1);
@@ -90,9 +90,9 @@ public sealed class Tests
         Assert.AreEqual(TestObject.Version3beta, deserialized.Version3beta);
         Assert.AreEqual(TestObject.Version4_Gamma, deserialized.Version4_Gamma);
         Assert.AreEqual(TestObject.Version5_delta, deserialized.Version5_delta);
-        Assert.AreEqual(TestObject.Version6__Epsilon, deserialized.Version6__Epsilon);
-        Assert.AreEqual(TestObject.Version7__zeta, deserialized.Version7__zeta);
-        Assert.AreEqual(TestObject.Hex1_0xa1b23cd4, deserialized.Hex1_0xa1b23cd4);
-        Assert.AreEqual(TestObject.Hex2_0xA1B23CD4, deserialized.Hex2_0xA1B23CD4);
+        Assert.AreEqual(TestObject.Version6__Zeta, deserialized.Version6__Zeta);
+        Assert.AreEqual(TestObject.Version7__eta, deserialized.Version7__eta);
+        Assert.AreEqual(TestObject.Hex1_0xa1b23c, deserialized.Hex1_0xa1b23c);
+        Assert.AreEqual(TestObject.Hex2_0xA1B23C, deserialized.Hex2_0xA1B23C);
     }
 }
