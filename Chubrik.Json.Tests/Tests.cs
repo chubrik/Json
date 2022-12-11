@@ -94,5 +94,6 @@ public sealed class Tests
         Assert.AreEqual(TestObject.Version7__eta, deserialized.Version7__eta);
         Assert.AreEqual(TestObject.Hex1_0xa1b23c, deserialized.Hex1_0xa1b23c);
         Assert.AreEqual(TestObject.Hex2_0xA1B23C, deserialized.Hex2_0xA1B23C);
+        Assert.AreEqual(TestObject.ЮникодПроп, deserialized.ЮникодПроп);
     }
 }

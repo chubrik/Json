@@ -4,26 +4,23 @@ using static Chubrik.Json.CharType;
 
 internal static class Constants
 {
-    public const string PropertyNameBadCharactersMessage =
-        "Property name should contain only the following characters: A-Z a-z 0-9 _";
-
     public static readonly CharType[] CharTypeMap = new[]
     {
-        Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal,
-        Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal,
-        Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal,
-        Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal,
-        Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, //    ! " # $ % & '
-        Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, //  ( ) * + , - . /
-        Number,  Number,  Number,  Number,  Number,  Number,  Number,  Number,  //  0 1 2 3 4 5 6 7
-        Number,  Number,  Illegal, Illegal, Illegal, Illegal, Illegal, Illegal, //  8 9 : ; < = > ?
-        Illegal, LetterU, LetterU, LetterU, LetterU, LetterU, LetterU, LetterU, //  @ A B C D E F G
-        LetterU, LetterU, LetterU, LetterU, LetterU, LetterU, LetterU, LetterU, //  H I J K L M N O
-        LetterU, LetterU, LetterU, LetterU, LetterU, LetterU, LetterU, LetterU, //  P Q R S T U V W
-        LetterU, LetterU, LetterU, Illegal, Illegal, Illegal, Illegal, Underln, //  X Y Z [ \ ] ^ _
-        Illegal, LetterL, LetterL, LetterL, LetterL, LetterL, LetterL, LetterL, //  ` a b c d e f g
-        LetterL, LetterL, LetterL, LetterL, LetterL, LetterL, LetterL, LetterL, //  h i j k l m n o
-        LetterL, LetterL, LetterL, LetterL, LetterL, LetterL, LetterL, LetterL, //  p q r s t u v w
-        LetterL, LetterL, LetterL                                               //  x y z
+        Other, Other, Other, Other, Other, Other, Other, Other,
+        Other, Other, Other, Other, Other, Other, Other, Other,
+        Other, Other, Other, Other, Other, Other, Other, Other,
+        Other, Other, Other, Other, Other, Other, Other, Other,
+        Other, Other, Other, Other, Other, Other, Other, Other,  //    ! " # $ % & '
+        Other, Other, Other, Other, Other, Other, Other, Other,  //  ( ) * + , - . /
+        Other, Other, Other, Other, Other, Other, Other, Other,  //  0 1 2 3 4 5 6 7
+        Other, Other, Other, Other, Other, Other, Other, Other,  //  8 9 : ; < = > ?
+        Other, Upper, Upper, Upper, Upper, Upper, Upper, Upper,  //  @ A B C D E F G
+        Upper, Upper, Upper, Upper, Upper, Upper, Upper, Upper,  //  H I J K L M N O
+        Upper, Upper, Upper, Upper, Upper, Upper, Upper, Upper,  //  P Q R S T U V W
+        Upper, Upper, Upper, Other, Other, Other, Other, ULine,  //  X Y Z [ \ ] ^ _
+        Other, Lower, Lower, Lower, Lower, Lower, Lower, Lower,  //  ` a b c d e f g
+        Lower, Lower, Lower, Lower, Lower, Lower, Lower, Lower,  //  h i j k l m n o
+        Lower, Lower, Lower, Lower, Lower, Lower, Lower, Lower,  //  p q r s t u v w
+        Lower, Lower, Lower, Other, Other, Other, Other, Other   //  x y z { | } ~
     };
 }

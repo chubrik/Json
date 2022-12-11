@@ -15,7 +15,7 @@ internal sealed class JsonKebabLowerCaseNamingPolicy : JsonNamingPolicy
         var sb = new StringBuilder();
         var lastIndex = name!.Length - 1;
         var typeMap = Constants.CharTypeMap;
-        var prevType = Underln;
+        var prevType = ULine;
         char ch;
         CharType type;
 
@@ -23,43 +23,73 @@ internal sealed class JsonKebabLowerCaseNamingPolicy : JsonNamingPolicy
         {
             ch = name[i];
 
-            if (ch > 'z')
-                throw new JsonException(Constants.PropertyNameBadCharactersMessage);
-
-            type = typeMap[ch];
-
-            switch (type)
+            if (ch <= '\x7f')
             {
-                case LetterL:
-                    sb.Append(ch);
-                    break;
+                type = typeMap[ch];
 
-                case LetterU:
+                switch (type)
+                {
+                    case Lower:
+                        sb.Append(ch);
+                        break;
 
-                    if (prevType == LetterU)
-                    {
-                        if (i < lastIndex && typeMap[name[i + 1]] == LetterL)
+                    case Upper:
+
+                        if (prevType == Upper)
+                        {
+                            if (i < lastIndex)
+                            {
+                                var nextCh = name[i + 1];
+
+                                if (nextCh <= '\x7f')
+                                {
+                                    if (typeMap[nextCh] == Lower)
+                                        sb.Append('-');
+                                }
+                                else if (char.IsLower(nextCh))
+                                    sb.Append('-');
+                            }
+                        }
+                        else if (prevType != ULine)
                             sb.Append('-');
-                    }
-                    else if (prevType != Underln)
+
+                        sb.Append((char)(ch + 32));
+                        break;
+
+                    case ULine:
                         sb.Append('-');
+                        break;
 
-                    sb.Append((char)(ch + 32));
-                    break;
+                    default:
+                        sb.Append(ch);
+                        break;
+                }
 
-                case Number:
-                    sb.Append(ch);
-                    break;
-
-                case Underln:
-                    sb.Append('-');
-                    break;
-
-                default:
-                    throw new InvalidOperationException();
+                prevType = type;
             }
+            else if (char.IsLower(ch))
+            {
+                sb.Append(ch);
+                prevType = Lower;
+            }
+            else if (char.IsUpper(ch))
+            {
+                if (prevType == Upper)
+                {
+                    if (i < lastIndex && char.IsLower(name[i + 1]))
+                        sb.Append('-');
+                }
+                else if (prevType != ULine)
+                    sb.Append('-');
 
-            prevType = type;
+                sb.Append(char.ToLowerInvariant(ch));
+                prevType = Upper;
+            }
+            else
+            {
+                sb.Append(ch);
+                prevType = Other;
+            }
         }
 
         return sb.ToString();

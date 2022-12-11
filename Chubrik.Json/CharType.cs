@@ -2,9 +2,8 @@
 
 internal enum CharType
 {
-    Illegal,
-    LetterU,
-    LetterL,
-    Number,
-    Underln
+    Lower,
+    Upper,
+    ULine,
+    Other
 }

@@ -1,29 +1,34 @@
-﻿using System.Text.Json;
+﻿namespace Chubrik.Json.Tests;
 
-namespace Chubrik.Json.Tests;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 
 public static class Constants
 {
     public static readonly JsonSerializerOptions KebabLowerCaseJsonOptions = new()
     {
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
         PropertyNamingPolicy = JsonNamingPolicies.KebabLowerCase,
         WriteIndented = true
     };
 
     public static readonly JsonSerializerOptions KebabUpperCaseJsonOptions = new()
     {
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
         PropertyNamingPolicy = JsonNamingPolicies.KebabUpperCase,
         WriteIndented = true
     };
 
     public static readonly JsonSerializerOptions SnakeLowerCaseJsonOptions = new()
     {
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
         PropertyNamingPolicy = JsonNamingPolicies.SnakeLowerCase,
         WriteIndented = true
     };
 
     public static readonly JsonSerializerOptions SnakeUpperCaseJsonOptions = new()
     {
+        Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
         PropertyNamingPolicy = JsonNamingPolicies.SnakeUpperCase,
         WriteIndented = true
     };
@@ -54,7 +59,8 @@ public static class Constants
         Version6__Zeta = 22,
         Version7__eta = 23,
         Hex1_0xa1b23c = 24,
-        Hex2_0xA1B23C = 25
+        Hex2_0xA1B23C = 25,
+        ЮникодПроп = 26
     };
 
     public static readonly string SnakeLowerJson =
@@ -83,7 +89,8 @@ public static class Constants
   ""version6__zeta"": 22,
   ""version7__eta"": 23,
   ""hex1_0xa1b23c"": 24,
-  ""hex2_0x_a1_b23_c"": 25
+  ""hex2_0x_a1_b23_c"": 25,
+  ""юникод_проп"": 26
 }";
 
     public static readonly string SnakeUpperJson = SnakeLowerJson.ToUpper();
