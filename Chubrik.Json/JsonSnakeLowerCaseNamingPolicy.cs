@@ -1,27 +1,31 @@
 ﻿namespace Chubrik.Json;
 
 using System;
-using System.Text;
 using System.Text.Json;
 using static Chubrik.Json.CharType;
 
 internal sealed class JsonSnakeLowerCaseNamingPolicy : JsonNamingPolicy
 {
-    public override string ConvertName(string? name)
+    public override unsafe string ConvertName(string? name)
     {
         if (string.IsNullOrEmpty(name))
             throw new InvalidOperationException();
 
-        var sb = new StringBuilder();
-        var lastIndex = name!.Length - 1;
+#if NET
+        Span<char> output = stackalloc char[name.Length * 3 / 2];
+#else
+        var output = stackalloc char[name!.Length * 3 / 2];
+#endif
+        var outputIndex = 0;
+        var inputLastIndex = name!.Length - 1;
         var typeMap = Constants.CharTypeMap;
         var prevType = ULine;
         char ch;
         CharType type;
 
-        for (var i = 0; i <= lastIndex; i++)
+        for (var inputIndex = 0; inputIndex <= inputLastIndex; inputIndex++)
         {
-            ch = name[i];
+            ch = name[inputIndex];
 
             if (ch <= '\x7f')
             {
@@ -30,38 +34,38 @@ internal sealed class JsonSnakeLowerCaseNamingPolicy : JsonNamingPolicy
                 switch (type)
                 {
                     case Lower:
-                        sb.Append(ch);
+                        output[outputIndex++] = ch;
                         break;
 
                     case Upper:
 
                         if (prevType == Upper)
                         {
-                            if (i < lastIndex)
+                            if (inputIndex < inputLastIndex)
                             {
-                                var nextCh = name[i + 1];
+                                var nextCh = name[inputIndex + 1];
 
                                 if (nextCh <= '\x7f')
                                 {
                                     if (typeMap[nextCh] == Lower)
-                                        sb.Append('_');
+                                        output[outputIndex++] = '_';
                                 }
                                 else if (char.IsLower(nextCh))
-                                    sb.Append('_');
+                                    output[outputIndex++] = '_';
                             }
                         }
                         else if (prevType != ULine)
-                            sb.Append('_');
+                            output[outputIndex++] = '_';
 
-                        sb.Append((char)(ch + 32));
+                        output[outputIndex++] = (char)(ch + 32);
                         break;
 
                     case ULine:
-                        sb.Append('_');
+                        output[outputIndex++] = '_';
                         break;
 
                     default:
-                        sb.Append(ch);
+                        output[outputIndex++] = ch;
                         break;
                 }
 
@@ -69,29 +73,33 @@ internal sealed class JsonSnakeLowerCaseNamingPolicy : JsonNamingPolicy
             }
             else if (char.IsLower(ch))
             {
-                sb.Append(ch);
+                output[outputIndex++] = ch;
                 prevType = Lower;
             }
             else if (char.IsUpper(ch))
             {
                 if (prevType == Upper)
                 {
-                    if (i < lastIndex && char.IsLower(name[i + 1]))
-                        sb.Append('_');
+                    if (inputIndex < inputLastIndex && char.IsLower(name[inputIndex + 1]))
+                        output[outputIndex++] = '_';
                 }
                 else if (prevType != ULine)
-                    sb.Append('_');
+                    output[outputIndex++] = '_';
 
-                sb.Append(char.ToLowerInvariant(ch));
+                output[outputIndex++] = char.ToLowerInvariant(ch);
                 prevType = Upper;
             }
             else
             {
-                sb.Append(ch);
+                output[outputIndex++] = ch;
                 prevType = Other;
             }
         }
 
-        return sb.ToString();
+#if NET
+        return new string(output[..outputIndex]);
+#else
+        return new string(output, 0, outputIndex);
+#endif
     }
 }
