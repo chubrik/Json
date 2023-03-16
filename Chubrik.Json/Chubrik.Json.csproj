@@ -10,13 +10,15 @@
     <Copyright>© 2022 Arkadi Chubrik</Copyright>
     <Description>Tiny library based on System.Text.Json and provides snake_case &amp; kebab-case property name serialization policies. Designed for maximum performance.</Description>
     <PackageTags>json serialization property snake_case kebab-case</PackageTags>
+    <PackageIcon>icon.png</PackageIcon>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/chubrik/Json</RepositoryUrl>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\icon.png" Link="Pack\icon.png" Pack="true" PackagePath="" />
     <None Include="..\LICENSE" Link="Pack\LICENSE" Pack="true" PackagePath="" />
     <None Include="..\README.md" Link="Pack\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
