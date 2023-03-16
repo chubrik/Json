@@ -60,7 +60,7 @@ public static class Constants
         Version7__eta = 23,
         Hex1_0xa1b23c = 24,
         Hex2_0xA1B23C = 25,
-        ЮникодПроп = 26
+        ΞένοΌνομα = 26
     };
 
     public static readonly string SnakeLowerJson =
@@ -90,7 +90,7 @@ public static class Constants
   ""version7__eta"": 23,
   ""hex1_0xa1b23c"": 24,
   ""hex2_0x_a1_b23_c"": 25,
-  ""юникод_проп"": 26
+  ""ξένο_όνομα"": 26
 }";
 
     public static readonly string SnakeUpperJson = SnakeLowerJson.ToUpper();

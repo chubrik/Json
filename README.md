@@ -53,7 +53,7 @@ The following table shows the serialization rules for different JSON naming poli
 | Version7__eta   | version7__eta    | VERSION7__ETA    | version7--eta    | VERSION7--ETA    |
 | Hex1_0xa1b23c   | hex1_0xa1b23c    | HEX1_0XA1B23C    | hex1-0xa1b23c    | HEX1-0XA1B23C    |
 | Hex2_0xA1B23C   | hex2_0x_a1_b23_c | HEX2_0X_A1_B23_C | hex2-0x-a1-b23-c | HEX2-0X-A1-B23-C |
-| ЮникодПроп      | юникод_проп      | ЮНИКОД_ПРОП      | юникод-проп      | ЮНИКОД-ПРОП      |
+| ΞένοΌνομα       | ξένο_όνομα       | ΞΈΝΟ_ΌΝΟΜΑ       | ξένο-όνομα       | ΞΈΝΟ-ΌΝΟΜΑ       |
 <br>
 
 ## <a name="license"></a>License

@@ -29,5 +29,5 @@ public sealed class Serializable
     public int? Version7__eta { get; set; }
     public int? Hex1_0xa1b23c { get; set; }
     public int? Hex2_0xA1B23C { get; set; }
-    public int? ЮникодПроп { get; set; }
+    public int? ΞένοΌνομα { get; set; }
 }
