@@ -3,8 +3,8 @@
 [![MIT license](https://img.shields.io/github/license/chubrik/Json)](https://github.com/chubrik/Json/blob/main/LICENSE)
 [![NuGet downloads](https://img.shields.io/nuget/dt/Chubrik.Json)](https://www.nuget.org/packages/Chubrik.Json/)
 
-Tiny .NET library based on `System.Text.Json` and provides *snake_case* &amp; *kebab-case*
-property name serialization policies. Designed for maximum performance.
+Provides `snake_case` &amp; `kebab-case` property name serialization.
+Tiny and high-performance .NET library based on System.Text.Json.
 <br><br>
 
 ## Install
