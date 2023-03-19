@@ -2,7 +2,6 @@
 
 using System;
 using System.Text.Json;
-using static Chubrik.Json.CharType;
 
 internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
 {
@@ -17,82 +16,82 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
         var output = stackalloc char[name!.Length * 3 / 2];
 #endif
         var outputIndex = 0;
-        var inputLastIndex = name!.Length - 1;
+        var lastInputIndex = name!.Length - 1;
         var typeMap = Constants.CharTypeMap;
-        var prevType = ULine;
-        char ch;
+        var prevType = CharType.ULine;
+        char @char;
         CharType type;
 
-        for (var inputIndex = 0; inputIndex <= inputLastIndex; inputIndex++)
+        for (var inputIndex = 0; inputIndex <= lastInputIndex; inputIndex++)
         {
-            ch = name[inputIndex];
+            @char = name[inputIndex];
 
-            if (ch <= '\x7f')
+            if (@char < 128)
             {
-                type = typeMap[ch];
+                type = typeMap[@char];
 
                 switch (type)
                 {
-                    case Lower:
-                        output[outputIndex++] = (char)(ch - 32);
+                    case CharType.Lower:
+                        output[outputIndex++] = unchecked((char)(@char - 32));
                         break;
 
-                    case Upper:
+                    case CharType.Upper:
 
-                        if (prevType == Upper)
+                        if (prevType == CharType.Upper)
                         {
-                            if (inputIndex < inputLastIndex)
+                            if (inputIndex < lastInputIndex)
                             {
-                                var nextCh = name[inputIndex + 1];
+                                var nextChar = name[inputIndex + 1];
 
-                                if (nextCh <= '\x7f')
+                                if (nextChar < 128)
                                 {
-                                    if (typeMap[nextCh] == Lower)
+                                    if (typeMap[nextChar] == CharType.Lower)
                                         output[outputIndex++] = '_';
                                 }
-                                else if (char.IsLower(nextCh))
+                                else if (char.IsLower(nextChar))
                                     output[outputIndex++] = '_';
                             }
                         }
-                        else if (prevType != ULine)
+                        else if (prevType != CharType.ULine)
                             output[outputIndex++] = '_';
 
-                        output[outputIndex++] = ch;
+                        output[outputIndex++] = @char;
                         break;
 
-                    case ULine:
+                    case CharType.ULine:
                         output[outputIndex++] = '_';
                         break;
 
                     default:
-                        output[outputIndex++] = ch;
+                        output[outputIndex++] = @char;
                         break;
                 }
 
                 prevType = type;
             }
-            else if (char.IsLower(ch))
+            else if (char.IsLower(@char))
             {
-                output[outputIndex++] = char.ToUpperInvariant(ch);
-                prevType = Lower;
+                output[outputIndex++] = char.ToUpperInvariant(@char);
+                prevType = CharType.Lower;
             }
-            else if (char.IsUpper(ch))
+            else if (char.IsUpper(@char))
             {
-                if (prevType == Upper)
+                if (prevType == CharType.Upper)
                 {
-                    if (inputIndex < inputLastIndex && char.IsLower(name[inputIndex + 1]))
+                    if (inputIndex < lastInputIndex && char.IsLower(name[inputIndex + 1]))
                         output[outputIndex++] = '_';
                 }
-                else if (prevType != ULine)
+                else if (prevType != CharType.ULine)
                     output[outputIndex++] = '_';
 
-                output[outputIndex++] = ch;
-                prevType = Upper;
+                output[outputIndex++] = @char;
+                prevType = CharType.Upper;
             }
             else
             {
-                output[outputIndex++] = ch;
-                prevType = Other;
+                output[outputIndex++] = @char;
+                prevType = CharType.Other;
             }
         }
 
