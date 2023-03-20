@@ -14,11 +14,11 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/chubrik/Json</RepositoryUrl>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\icon.png" Link="Pack\icon.png" Pack="true" PackagePath="" />
+    <None Include="..\img\icon.png" Link="Pack\icon.png" Pack="true" PackagePath="" />
     <None Include="..\LICENSE" Link="Pack\LICENSE" Pack="true" PackagePath="" />
     <None Include="..\README.md" Link="Pack\README.md" Pack="true" PackagePath="" />
   </ItemGroup>

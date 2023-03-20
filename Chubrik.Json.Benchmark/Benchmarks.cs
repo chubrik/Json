@@ -6,7 +6,7 @@ using BenchmarkDotNet.Attributes;
 using System;
 
 [MemoryDiagnoser]
-public sealed class Benchmarks
+public class Benchmarks
 {
     [GlobalSetup]
     public void Setup()
