@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chubrik.Json", "Chubrik.Json\Chubrik.Json.csproj", "{F507933F-903A-4D30-994D-9CD365A31B96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chubrik.Json.Benchmark", "Chubrik.Json.Benchmark\Chubrik.Json.Benchmark.csproj", "{0582EFA3-EF7F-4807-BEBF-83961D12610C}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chubrik.Json.Tests", "Chubrik.Json.Tests\Chubrik.Json.Tests.csproj", "{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4541551E-BFAA-49A6-B88B-BB79A64E2F10}"
@@ -22,6 +24,10 @@ Global
 		{F507933F-903A-4D30-994D-9CD365A31B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F507933F-903A-4D30-994D-9CD365A31B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F507933F-903A-4D30-994D-9CD365A31B96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0582EFA3-EF7F-4807-BEBF-83961D12610C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0582EFA3-EF7F-4807-BEBF-83961D12610C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0582EFA3-EF7F-4807-BEBF-83961D12610C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0582EFA3-EF7F-4807-BEBF-83961D12610C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B5F9DC8E-A42F-4269-BBD4-B14E616C76F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
