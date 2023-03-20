@@ -59,10 +59,6 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
                         output[outputIndex++] = @char;
                         break;
 
-                    case CharType.ULine:
-                        output[outputIndex++] = '_';
-                        break;
-
                     default:
                         output[outputIndex++] = @char;
                         break;
