@@ -20,49 +20,41 @@ internal sealed class JsonSnakeLowerCaseNamingPolicy : JsonNamingPolicy
         var typeMap = Constants.CharTypeMap;
         var prevType = CharType.ULine;
         char @char;
+        int charInt;
         CharType type;
 
         for (var inputIndex = 0; inputIndex <= lastInputIndex; inputIndex++)
         {
-            @char = name[inputIndex];
+            charInt = @char = name[inputIndex];
 
-            if (@char < 128)
+            if (charInt < 128)
             {
-                type = typeMap[@char];
+                type = typeMap[charInt];
 
-                switch (type)
+                if (type == CharType.Upper)
                 {
-                    case CharType.Lower:
-                        output[outputIndex++] = @char;
-                        break;
-
-                    case CharType.Upper:
-
-                        if (prevType == CharType.Upper)
+                    if (prevType == CharType.Upper)
+                    {
+                        if (inputIndex < lastInputIndex)
                         {
-                            if (inputIndex < lastInputIndex)
-                            {
-                                var nextChar = name[inputIndex + 1];
+                            var nextChar = name[inputIndex + 1];
 
-                                if (nextChar < 128)
-                                {
-                                    if (typeMap[nextChar] == CharType.Lower)
-                                        output[outputIndex++] = '_';
-                                }
-                                else if (char.IsLower(nextChar))
+                            if (nextChar < 128)
+                            {
+                                if (typeMap[nextChar] == CharType.Lower)
                                     output[outputIndex++] = '_';
                             }
+                            else if (char.IsLower(nextChar))
+                                output[outputIndex++] = '_';
                         }
-                        else if (prevType != CharType.ULine)
-                            output[outputIndex++] = '_';
+                    }
+                    else if (prevType != CharType.ULine)
+                        output[outputIndex++] = '_';
 
-                        output[outputIndex++] = unchecked((char)(@char + 32));
-                        break;
-
-                    default:
-                        output[outputIndex++] = @char;
-                        break;
+                    output[outputIndex++] = unchecked((char)(charInt + 32));
                 }
+                else
+                    output[outputIndex++] = @char;
 
                 prevType = type;
             }

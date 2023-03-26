@@ -20,20 +20,21 @@ internal sealed class JsonSnakeUpperCaseNamingPolicy : JsonNamingPolicy
         var typeMap = Constants.CharTypeMap;
         var prevType = CharType.ULine;
         char @char;
+        int charInt;
         CharType type;
 
         for (var inputIndex = 0; inputIndex <= lastInputIndex; inputIndex++)
         {
-            @char = name[inputIndex];
+            charInt = @char = name[inputIndex];
 
-            if (@char < 128)
+            if (charInt < 128)
             {
-                type = typeMap[@char];
+                type = typeMap[charInt];
 
                 switch (type)
                 {
                     case CharType.Lower:
-                        output[outputIndex++] = unchecked((char)(@char - 32));
+                        output[outputIndex++] = unchecked((char)(charInt - 32));
                         break;
 
                     case CharType.Upper:
