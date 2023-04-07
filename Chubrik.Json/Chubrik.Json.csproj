@@ -14,7 +14,8 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/chubrik/Json</RepositoryUrl>
-    <Version>1.0.4</Version>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Version>1.0.5</Version>
   </PropertyGroup>
 
   <ItemGroup>
