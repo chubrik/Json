@@ -11,9 +11,9 @@ internal sealed class JsonKebabLowerCaseNamingPolicy : JsonNamingPolicy
             throw new InvalidOperationException();
 
 #if NET
-        Span<char> output = stackalloc char[name.Length * 3 / 2];
+        Span<char> output = stackalloc char[name.Length << 1];
 #else
-        var output = stackalloc char[name!.Length * 3 / 2];
+        var output = stackalloc char[name!.Length << 1];
 #endif
         var outputIndex = 0;
         var lastInputIndex = name!.Length - 1;
@@ -57,7 +57,7 @@ internal sealed class JsonKebabLowerCaseNamingPolicy : JsonNamingPolicy
                         else if (prevType != CharType.ULine)
                             output[outputIndex++] = '-';
 
-                        output[outputIndex++] = unchecked((char)(charInt + 32));
+                        output[outputIndex++] = unchecked((char)(charInt | 0x20));
                         break;
 
                     case CharType.ULine:

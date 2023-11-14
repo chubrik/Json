@@ -11,9 +11,9 @@ internal sealed class JsonSnakeLowerCaseNamingPolicy : JsonNamingPolicy
             throw new InvalidOperationException();
 
 #if NET
-        Span<char> output = stackalloc char[name.Length * 3 / 2];
+        Span<char> output = stackalloc char[name.Length << 1];
 #else
-        var output = stackalloc char[name!.Length * 3 / 2];
+        var output = stackalloc char[name!.Length << 1];
 #endif
         var outputIndex = 0;
         var lastInputIndex = name!.Length - 1;
@@ -51,7 +51,7 @@ internal sealed class JsonSnakeLowerCaseNamingPolicy : JsonNamingPolicy
                     else if (prevType != CharType.ULine)
                         output[outputIndex++] = '_';
 
-                    output[outputIndex++] = unchecked((char)(charInt + 32));
+                    output[outputIndex++] = unchecked((char)(charInt | 0x20));
                 }
                 else
                     output[outputIndex++] = @char;
