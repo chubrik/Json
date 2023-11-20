@@ -1,4 +1,8 @@
-﻿# [![Chubrik.Json project](https://raw.githubusercontent.com/chubrik/Json/main/img/icon.png)](#) Chubrik.Json
+﻿## [DEPRECATED]
+_Use the `System.Text.Json` package version 8.0+ instead. It fully matches the functionality of the current package._
+<br><br><br>
+
+# [![Chubrik.Json project](https://raw.githubusercontent.com/chubrik/Json/main/img/icon.png)](#) Chubrik.Json
 [![NuGet package](https://img.shields.io/nuget/v/Chubrik.Json)](https://www.nuget.org/packages/Chubrik.Json/)
 [![MIT license](https://img.shields.io/github/license/chubrik/Json)](https://github.com/chubrik/Json/blob/main/LICENSE)
 [![NuGet downloads](https://img.shields.io/nuget/dt/Chubrik.Json)](https://www.nuget.org/packages/Chubrik.Json/)
